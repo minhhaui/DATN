@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HAUI_LIBOI"
         mc:Ignorable="d"
         Title="TRẢ SÁCH" WindowStartupLocation="CenterScreen"
-        WindowState="Maximized">
+        WindowState="Maximized" Icon="/Image/Return.png">
     <Window.Resources>
         <Style x:Key="RoundedActionButton" TargetType="Button">
             <Setter Property="Background" Value="AliceBlue"/>
