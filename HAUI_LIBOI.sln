@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAUI_LIBOI", "HAUI_LIBOI\HAUI_LIBOI.csproj", "{42AEA969-CD52-4D8B-B0C0-5B67FC8A9BB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Ver1", "..\..\Đồ án tốt nghiệp\API_Ver1\API_Ver1\API_Ver1.csproj", "{D98C808E-FA7E-41CF-9FCE-785A9C582475}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Ver1", "API_Ver1\API_Ver1.csproj", "{D98C808E-FA7E-41CF-9FCE-785A9C582475}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

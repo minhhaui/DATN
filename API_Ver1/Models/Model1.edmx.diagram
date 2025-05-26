@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6fdb33eaccab410fb68354148bf36c58" Name="Diagram1" ZoomLevel="46">
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.BookCopy" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.Book" Width="1.5" PointX="1.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.BorrowingDetail" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.Borrowing" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.Category" Width="1.5" PointX="1.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.LibraryBranch" Width="1.5" PointX="1.5" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.Reservation" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.Room" Width="1.5" PointX="1.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.StorageLocation" Width="1.5" PointX="1.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAUI_LIBRARY_25Model.User" Width="1.5" PointX="3.75" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK__BookCopie__BookI__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK_BookCopies_StorageLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK_Reservation_BookCopies" ManuallyRouted="false" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK_Books_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK_Borrowings_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK_Rooms_LibraryBranches" ManuallyRouted="false" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK_Reservation_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK_StorageLocations_Rooms" ManuallyRouted="false" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK_BorrowingDetails_BookCopies" />
+        <AssociationConnector Association="HAUI_LIBRARY_25Model.FK_BorrowingDetails_Borrowings" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
