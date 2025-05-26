@@ -1,0 +1,159 @@
+﻿<Window x:Class="HAUI_LIBOI.OI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HAUI_LIBOI"
+        mc:Ignorable="d"
+        Title="OI" 
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <Window.Resources>
+        <!-- Hiệu ứng hover phóng to -->
+        <Style x:Key="RoundedActionButton" TargetType="Button">
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Height" Value="220"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="BorderBrush" Value="#007ACC"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Hover -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CCE4F7"/>
+                            </Trigger>
+                            <!-- Pressed -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Azure"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!-- Style-level Trigger để xử lý khi Disabled -->
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleX)"
+                         To="1.08" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleY)"
+                         To="1.08" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleX)"
+                         To="1" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(Button.RenderTransform).(ScaleTransform.ScaleY)"
+                         To="1" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Viewbox Stretch="Uniform">
+        <Grid Width="1000" Height="600" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Row 1 -->
+                <RowDefinition Height="Auto" />
+                <!-- Row 2 -->
+                <RowDefinition Height="*" />
+                <!-- Row 3 -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <!-- Col 1 -->
+                <ColumnDefinition Width="*" />
+                <!-- Col 2 -->
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" Grid.Column="0"
+                   Source="Image/libOI.png"
+                   Width="350"
+                   Height="80"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="20,0,350,0"/>
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50,0,0,15">
+                <Image Source="Image/location.png" Width="27" Height="27" Margin="0,0,5,0"/>
+                <TextBlock x:Name="txt_tenphong" 
+                           Text="Phòng mượn 1A"
+                           FontSize="20" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,20,0,0">
+                <TextBlock Text="TRẠM MƯỢN VÀ TRẢ SÁCH TỰ PHỤC VỤ LIBOI" 
+                            FontSize="30" FontWeight="Bold" 
+                            HorizontalAlignment="Center" Margin="0,30,0,10"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.ColumnSpan ="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <!-- Button 1: Mượn tại chỗ -->
+                <Button Style="{StaticResource RoundedActionButton}" Margin="0,0,80,110" x:Name="btn_doctaicho" Click="btn_doctaicho_Click">
+                    <StackPanel>
+                        <Image Source="Image/BorrowInplace.png" Width="90" Height="90" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Mượn sách tại chỗ" FontSize="16" FontWeight="SemiBold" Margin="0,10,0,0"
+                           HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Button 2: Mượn mang về -->
+                <Button Style="{StaticResource RoundedActionButton}" Margin="0,0,80,110" x:Name="btn_muonvenha" Click="btn_muonvenha_Click">
+                    <StackPanel>
+                        <Image Source="Image/Borrow.png" Width="90" Height="90" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Mượn sách mang về" FontSize="16" FontWeight="SemiBold" Margin="0,10,0,0"
+                           HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Button 3: Trả sách -->
+                <Button Style="{StaticResource RoundedActionButton}" Margin="0,0,0,110" x:Name="btn_Trasach" Click="btn_Trasach_Click">
+                    <StackPanel>
+                        <Image Source="Image/Return.png" Width="90" Height="90" HorizontalAlignment="Center" Margin="20,0,0,0"/>
+                        <TextBlock Text="Trả sách" FontSize="16" FontWeight="SemiBold" Margin="0,10,0,0"
+                           HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
+</Window>
