@@ -93,11 +93,7 @@
                 <!-- Row 3 -->
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="35.11" />
-                <ColumnDefinition Width="0"/>
-                <ColumnDefinition Width="0"/>
-                <ColumnDefinition Width="0"/>
-                <ColumnDefinition Width="126.313"/>
+                <ColumnDefinition Width="Auto" />
                 <!-- Col 1 -->
                 <ColumnDefinition Width="1.1*" />
                 <!-- Col 2 -->
@@ -109,12 +105,12 @@
 
             <!-- Row 1 -->
             <!-- Col 1: Mã sinh viên -->
-            <Label Grid.Column="0"
+            <Label Grid.Row="0" Grid.Column="0"
                    Content="Mã sinh viên:" FontSize="20" FontWeight="Bold"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" Margin="27,0,0,0" Grid.ColumnSpan="5"/>
+                   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="27,0,0,0"/>      
 
             <!-- Col 2: txt_msv above error_msv -->
-            <StackPanel Grid.Row="0" Grid.Column="5" Orientation="Vertical" Margin="10,20,289,428" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="10,20,0,0">
                 <TextBox x:Name="txt_msv" 
                          Width="300"
                          Height="50"
@@ -126,24 +122,24 @@
             </StackPanel>
 
             <!-- Col 3: success_msv -->
-            <TextBlock Grid.Column="6" x:Name="success_msv"
+            <TextBlock Grid.Row="0" Grid.Column="2" x:Name="success_msv"
                        Foreground="Green" FontWeight="Bold" FontSize="16"
-                       VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Times New Roman"/>
+                       VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Times New Roman"/>    
 
             <!-- Col 4: location + txt_tenphong -->
-            <StackPanel Grid.Column="7" Orientation="Horizontal"
+            <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal"
                         VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Image Source="Image/location.png" Width="27" Height="27" Margin="0,0,5,0"/>
                 <TextBlock x:Name="txt_tenphong" Text="Phòng mượn 1A"
                            FontSize="20" VerticalAlignment="Center"/>
             </StackPanel>
-            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="8"
+            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
                     CornerRadius="8"
                     BorderBrush="#DDD"
                     BorderThickness="1"
                     Background="White"
                     Padding="5"
-                    Margin="27,0,231,0">
+                    Margin="27,0,0,0">
                 <Grid>
                     <Image x:Name="LibOIImage"
                            Source="Image/libOI.png"
@@ -187,7 +183,7 @@
                 </Grid>
             </Border>
             <!-- Col 4: Buttons -->
-            <StackPanel Grid.Row="1" Grid.Column="7"
+            <StackPanel Grid.Row="1" Grid.Column="3"
                         Orientation="Vertical"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
@@ -211,12 +207,12 @@
 
             <!-- Row 3 -->
             <!-- Col 1: Email Label -->
-            <Label Grid.Row="2" Grid.Column="1"
+            <Label Grid.Row="2" Grid.Column="0"
                    Content="Email:" FontSize="20" FontWeight="Bold"
                    VerticalAlignment="Center" HorizontalAlignment="Left" Margin="26,0,0,0" Grid.ColumnSpan="4"/>
 
             <!-- Col 2: txt_email above error_email -->
-            <StackPanel Grid.Row="2" Grid.Column="5" Orientation="Vertical" Margin="10,20,289,0" Grid.ColumnSpan="2">
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" Margin="10,20,0,0">
                 <TextBox x:Name="txt_email"
                          Width="300"
                          Height="50"
@@ -228,12 +224,12 @@
             </StackPanel>
 
             <!-- Col 3: success_email -->
-            <TextBlock Grid.Row="2" Grid.Column="6" x:Name="success_email"
+            <TextBlock Grid.Row="2" Grid.Column="2" x:Name="success_email"
                        Foreground="Green" FontWeight="Bold" FontSize="16"
                        VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Times New Roman"/>
 
             <!-- Col 4: txtTongTien -->
-            <TextBlock x:Name="txt_tong" Grid.Row="2" Grid.Column="7"
+            <TextBlock x:Name="txt_tong" Grid.Row="2" Grid.Column="3"
                        HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
                 <Run Text="Tổng tiền: " FontWeight="Bold" Foreground="Black" FontSize="20"/>
                 <Run x:Name="txtTongTien" Text="0 đ" FontSize="20" Foreground="Red" FontWeight="Bold"/>
